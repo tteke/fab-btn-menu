@@ -1,0 +1,112 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.fab-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: pink;
+  text-align: center;
+  line-height: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.fab-btn--sub {
+  background-color: gray;
+}
+
+.fab__container {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.fab__container .fab__menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  bottom: 100%;
+  margin-bottom: 10px;
+  visibility: hidden;
+  transition: visibility 0s;
+  transition-delay: 0.5s;
+  will-change: visibility;
+}
+
+.fab__toggle {
+  will-change: transform;
+  transform: rotate(0deg);
+  transition: transform 0.1s ease-in;
+}
+
+.fab__container.active .fab__toggle {
+  will-change: transform;
+  transform: rotate(45deg);
+  transition: transform 0.1s ease-in;
+}
+
+.fab__container.active .fab__menu {
+  visibility: visible;
+  will-change: visibility;
+  transition: visibility 0s;
+  transition-delay: 0s;
+}
+
+.fab__menu .fab-btn {
+  margin-bottom: 10px;
+}
+.fab__menu .fab-btn:first-child {
+  margin-bottom: 0;
+}
+
+.fab__menu-item {
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+  display: block;
+}
+
+/* backward transitions */
+
+.fab__container .fab__menu-item:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.fab__container .fab__menu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.fab__container .fab__menu-item:nth-child(3) {
+  transition-delay: 0.1s;
+}
+
+/* forward transitions */
+
+.fab__container.active .fab__menu-item:nth-child(1) {
+  transition: transform 0.2s ease-in-out;
+  transition-delay: 0.1s;
+  transform: scale(0.8);
+  will-change: transform;
+}
+
+.fab__container.active .fab__menu-item:nth-child(2) {
+  transition: transform 0.2s ease-in-out;
+  transition-delay: 0.2s;
+  transform: scale(0.8);
+  will-change: transform;
+}
+
+.fab__container.active .fab__menu-item:nth-child(3) {
+  transition: transform 0.2s ease-in-out;
+  transition-delay: 0.3s;
+  transform: scale(0.8);
+  will-change: transform;
+}
